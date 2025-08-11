@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>184</x>
+      <y>40</y>
+      <w>640</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>edu.ncsu.csc326.coffee_maker.entity
+--
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>192</x>
+      <y>64</y>
+      <w>200</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Inventory
+--
+-id: Long
+-listIngredient: List&lt;IngredientDto&gt;
+--
+Inventory()
+Inventory(id:Long, 
+    listIngredient: List&lt;IngredientDto&gt;)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>64</y>
+      <w>160</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Recipe
+--
+-id: Long
+-name: String
+-price: Ingeger
+-coffee: Integer
+-milk: Integer
+-sugar: Integer
+-chocolate: Integer
+--
+Recipe()
+Recipe(id:Long, name:String, 
+    price:Integer, coffee:Integer, 
+    milk:Integer, sugar:Integer, 
+    chocolate:Integer)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>184</x>
+      <y>256</y>
+      <w>752</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>edu.ncsu.csc326.coffee_maker.repository
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>208</x>
+      <y>288</y>
+      <w>120</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+InventoryRepository</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>368</x>
+      <y>280</y>
+      <w>248</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+RecipeRepository
+--
+--
++findByName(name:String): Optional&lt;Recipe&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>176</x>
+      <y>368</y>
+      <w>1344</w>
+      <h>368</h>
+    </coordinates>
+    <panel_attributes>edu.ncsu.csc326.coffee_maker.services
+--
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>208</x>
+      <y>392</y>
+      <w>264</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+InventoryService
+--
+--
+/+createInventory(inventoryDto:InventoryDto):InventoryDto/
+/+getInventory():InventoryDto/
+/+updateInventory(inventoryDto:InventoryDto):InventoryDto/
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>496</x>
+      <y>392</y>
+      <w>280</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+RecipeService
+--
+--
+/+createRecipe(recipeDto:RecipeDto):RecipeDto/
+/+getRecipeById(recipeId:Long):RecipeDto/
+/+getRecipeByName(recipeName:String):RecipeDto/
+/+isDuplicateName(recipeName:String):boolean/
+/+getAllRecipes():List&lt;RecipeDto&gt;/
+/+updateRecipe(recipeId:Long, recipeDto:RecipeDto):RecipeDto/
+/+deleteRecipe(recipeId:Long):void/
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>824</x>
+      <y>392</y>
+      <w>312</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+MakeRecipeService
+--
+--
+/+makeRecipe(inventoryDto:InventoryDto, recipeDto:RecipeDto):boolean/
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>192</x>
+      <y>528</y>
+      <w>1320</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>edu.ncsu.csc326.coffee_maker.services.impl
+--
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>552</y>
+      <w>280</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>InventoryServiceImpl
+--
+
+--
++createInventory(inventoryDto:InventoryDto):InventoryDto
++getInventory():InventoryDto
++updateInventory(inventoryDto:InventoryDto):InventoryDto
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>488</x>
+      <y>552</y>
+      <w>296</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>RecipeService
+--
+
+--
++createRecipe(recipeDto:RecipeDto):RecipeDto
++getRecipeById(recipeId:Long):RecipeDto
++getRecipeByName(recipeName:String):RecipeDto
++isDuplicateName(recipeName:String):boolean
++getAllRecipes():List&lt;RecipeDto&gt;
++updateRecipe(recipeId:Long, recipeDto:RecipeDto):RecipeDto
++deleteRecipe(recipeId:Long):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>552</y>
+      <w>360</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>MakeRecipeService
+--
+
+--
++makeRecipe(inventoryDto:InventoryDto, recipeDto:RecipeDto):boolean
+-enoughIngredients(inventoryDto:InventoryDto, recipeDto:RecipeDto):boolean
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>464</y>
+      <w>24</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>512</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>976</x>
+      <y>464</y>
+      <w>24</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>88</x>
+      <y>312</y>
+      <w>144</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+inventoryRepository</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;80.0;140.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>608</x>
+      <y>320</y>
+      <w>280</w>
+      <h>304</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+recipeRepository</panel_attributes>
+    <additional_attributes>10.0;10.0;240.0;40.0;160.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>312</y>
+      <w>528</w>
+      <h>256</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+inventoryRepository</panel_attributes>
+    <additional_attributes>10.0;10.0;520.0;70.0;640.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>968</x>
+      <y>8</y>
+      <w>384</w>
+      <h>344</h>
+    </coordinates>
+    <panel_attributes>edu.ncsu.csc326.coffee_maker.dto
+--
+bg=#800080</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>976</x>
+      <y>176</y>
+      <w>160</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>RecipeDto
+--
+-id: Long
+-name: String
+-price: Ingeger
+-coffee: Integer
+-milk: Integer
+-sugar: Integer
+-chocolate: Integer
+--
+RecipeDto()
+RecipeDto(id:Long, name:String, 
+    price:Integer, coffee:Integer, 
+    milk:Integer, sugar:Integer, 
+    chocolate:Integer)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>976</x>
+      <y>32</y>
+      <w>176</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>InventoryDto
+--
+-id: Long
+-listIngredient: List&lt;IngredientDto&gt;
+--
+InventoryDto()
+InventoryDto(id:Long, 
+    listIngredient: List&lt;IngredientDto&gt;)
+equals(Object o): boolean
+hashcode(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>168</x>
+      <y>776</y>
+      <w>1408</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>edu.ncsu.csc326.coffee_maker.controllers
+--
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>184</x>
+      <y>816</y>
+      <w>240</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>InventoryController
+--
+
+--
++getInventory():ResponseEntity&lt;InventoryDto&gt;
++updateInventory(inventoryDto:InventoryDto):
+              ResponseEntity&lt;InventoryDto&gt;
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>456</x>
+      <y>816</y>
+      <w>304</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>RecipeController
+--
+
+--
++getRecipes():List&lt;RecipeDto&gt;
++getRecipe(name:String):ResponseEntity&lt;RecipeDto&gt;
++createRecipe(recipeDto:RecipeDto):ResponseEntity&lt;RecipeDto&gt;
++deleteRecipe(recipeId:Long):ResponseEntity&lt;String&gt;
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>784</x>
+      <y>816</y>
+      <w>328</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>MakeRecipeController
+--
+
+--
++makeRecipe(name:String, amtPaid:Integer):ResponseEntity&lt;Integer&gt;
+-makeRecipe(toPurchase:RecipeDto, amtPaid:int):int
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>296</x>
+      <y>648</y>
+      <w>112</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+inventoryService</panel_attributes>
+    <additional_attributes>30.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>600</x>
+      <y>680</y>
+      <w>104</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+recipeService</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>368</x>
+      <y>648</y>
+      <w>480</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+inventoryService</panel_attributes>
+    <additional_attributes>30.0;10.0;10.0;50.0;580.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>696</x>
+      <y>680</y>
+      <w>256</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+recipeService</panel_attributes>
+    <additional_attributes>10.0;10.0;300.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>624</y>
+      <w>152</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+makeRecipeService</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>592</x>
+      <y>64</y>
+      <w>160</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Ingredient
+--
+-id: Long
+-name: String
+-amount: Integer
+--
+Ingredient()
+Ingredient(id: Long, amount: 
+Integer,  name: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>280</y>
+      <w>256</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IngredientRepository
+--
+--
++findByName(name:String): Optional&lt;Ingredient&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1184</x>
+      <y>392</y>
+      <w>312</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IngredientService
+--
+--
+/+createIngredient(ingredientDto:IngredientDto):IngredientDto/
+/+getIngredientByName(ingredientName:String):IngredientDto/
+/+isDuplicateName(ingredientName:String):boolean/
+/+updateIngredient(ingredientDto:IngredientDto):IngredientDto/
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1168</x>
+      <y>32</y>
+      <w>176</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>IngredientDto
+--
+-id: Long
+-name: String
+-amount: Integer
+
+--
+IngredientDto()
+IngredientDto(id: Long, amount: 
+Integer, name: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1192</x>
+      <y>552</y>
+      <w>296</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>IngredientServiceImpl
+--
+
+--
++createIngredient(ingredientDto:IngredientDto):IngredientDto
++getIngredientByName(ingredientName:String):IngredientDto
++isDuplicateName(ingredientName:String):boolean
++updateIngredient(ingredientDto:IngredientDto):IngredientDto
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1336</x>
+      <y>504</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>912</x>
+      <y>328</y>
+      <w>296</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+ingredientRepository</panel_attributes>
+    <additional_attributes>10.0;10.0;270.0;60.0;350.0;280.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1128</x>
+      <y>816</y>
+      <w>424</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>IngredientController
+--
+
+--
++getIngredient(name:String):ResponseEntity&lt;IngredientDto&gt;
++createIngredient(ingredientDto:IngredientDto):ResponseEntity&lt;IngredientDto&gt;
++updateIngredient(ingredientDto:IngredientDto):ResponseEntity&lt;List&lt;IngredientDto&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1280</x>
+      <y>664</y>
+      <w>120</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+ingredientService</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>152</x>
+      <y>304</y>
+      <w>1112</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+inventory
+Repository</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0;10.0;570.0;1370.0;570.0;1370.0;460.0</additional_attributes>
+  </element>
+</diagram>
